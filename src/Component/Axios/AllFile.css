@@ -4,9 +4,60 @@
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(90deg, #a30051 0%, #fd007f 99%);
+}
+
 .childDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    margin: auto;
     margin-top: 15vh;
+    background-color: white;
+    width: 30%;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+#heading {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 1px 1px 1px #a30051;
+    margin-bottom: 30px;
+}
+
+.childDiv input {
+    width: 100%;
+    min-height: 40px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+.childDiv button {
+    background: linear-gradient(90deg, #a30051 0%, #fd007f 99%);
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    width: 150px;
+    min-height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.childDiv button:hover {
+    box-shadow: 2px 2px 5px black;
+}
+
+.childDiv button:active {
+    border: 2px solid black;
+}
+
+.childDiv span {
+    font-size: small;
+    margin-top: 10px;
+    color: red;
 }

@@ -24,6 +24,7 @@ export default function Signup() {
         <div className='mainDiv'>
             <div className='childDiv'>
 
+                <h1 id='heading'>Sign Up</h1>
                 <form onSubmit={handleSubmit(submit)}>
                     <input type="text" placeholder='UserName'
                         {...register('UserName', {
