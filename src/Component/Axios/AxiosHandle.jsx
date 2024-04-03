@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function AxiosHandle() {
+const AxiosHandle = axios.create({
+    baseURL: 'https://dummyjson.com'
+})
 
-    const [products, setproducts] = useState([])
-
-    useEffect(() => { console.log(products); }, [products])
-
-    useEffect(() => {
-        axios.get("https://dummyjson.com/products", {
+AxiosHandle.interceptors.request.use(
+    (config) => {
+        return {
+            ...config,
             headers: {
-                Authorization: 'Bearer Noman007'
+                Authorization: 'Bearer noononomannnnn'
             }
-        })
-            .then((res) => {
-                if (res.status === 200) {
-                    setproducts([...res.data.products])
-                }
-            })
-            .catch((Error) => {
-                console.log(Error);
-            })
-    }, [])
+        }
+    },
+    (error) => {
+        return Promise.reject(error)
+    }
+)
 
-    
-
-    return (
-        <div>
-
-        </div>
-    )
-}
+export default AxiosHandle;

@@ -1,10 +1,10 @@
 import './App.css';
-import Signup from './Component/Axios/Signup';
+import Router from './Component/Router/Router';
 
 function App() {
   return (
     <div className="App">
-      <Signup />
+      <Router />
     </div>
   );
 }

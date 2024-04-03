@@ -1,5 +1,6 @@
 import React from 'react'
 import './AllFile.css'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 export default function Signup() {
@@ -8,14 +9,22 @@ export default function Signup() {
         handleSubmit,
         formState: { errors }
     } = useForm()
+    const navigate = useNavigate()
 
     const submit = (data) => {
-        if (data.password === data.Confirm) {
-            console.log("Same hai!");
-            console.log("data ==>", data);
+        try {
+
+            if (data.password === data.Confirm) {
+                console.log("Same hai!");
+                console.log("data ==>", data);
+                navigate('/login')
+            }
+            else {
+                alert('Please Confirm Password!')
+            }
         }
-        else {
-            alert('Please Confirm Password!')
+        catch (error) {
+            console.log('error ==>', error);
         }
     }
 
@@ -51,7 +60,7 @@ export default function Signup() {
                     <input type="email" placeholder='Email'  {...register('email', {
                         required: {
                             value: true,
-                            message: "email Name is required"
+                            message: "Email is required"
                         }
                     })} />
                     <br />
