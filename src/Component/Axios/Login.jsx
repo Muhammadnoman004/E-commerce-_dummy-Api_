@@ -11,13 +11,10 @@ export default function Login() {
     } = useForm()
 
     const submit = (data) => {
-        if (data.password === data.Confirm) {
-            console.log("Same hai!");
-            console.log("data ==>", data);
-        }
-        else {
-            alert('Please Confirm Password!')
-        }
+
+        console.log("Same hai!");
+        console.log("data ==>", data);
+
     }
     console.log(errors);
     return (
