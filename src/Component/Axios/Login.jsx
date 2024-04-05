@@ -1,6 +1,7 @@
 import React from 'react'
 import './AllFile.css'
 import { useForm } from 'react-hook-form'
+import { auth } from './Auth_Services/auth.service'
 
 export default function Login() {
 
@@ -10,10 +11,10 @@ export default function Login() {
         formState: { errors }
     } = useForm()
 
-    const submit = (data) => {
+    const submit = async (data) => {
 
-        console.log("Same hai!");
         console.log("data ==>", data);
+        const logdata = await auth(data)
 
     }
     console.log(errors);

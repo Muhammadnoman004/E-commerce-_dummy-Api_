@@ -15,7 +15,7 @@ export default function Signup() {
         try {
 
             if (data.password === data.Confirm) {
-                console.log("Same hai!");
+                
                 console.log("data ==>", data);
                 navigate('/login')
             }

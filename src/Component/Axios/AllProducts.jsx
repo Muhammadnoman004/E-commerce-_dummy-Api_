@@ -9,7 +9,7 @@ export default function AllProducts() {
     useEffect(() => {
         AxiosHandle.get('/products')
             .then(res => {
-                setAllProducts(res.data.products)
+                setAllProducts(res.products)
             }).catch(error => {
                 console.log(error);
             })
@@ -20,7 +20,7 @@ export default function AllProducts() {
             {
                 AllProducts.map(data => {
                     return (
-                        <div key={data.id}>
+                        <div key={data.id} style={{ backgroundColor: 'white', marginTop: "20px", width: "50%" }}>
                             <h2>{data.title}</h2>
                             <h4>$ {data.price}</h4>
                             <p>{data.description}</p>
