@@ -17,18 +17,23 @@ export default function AllProducts() {
 
     return (
         <div>
-            {
-                AllProducts.map(data => {
-                    return (
-                        <div key={data.id} style={{ backgroundColor: 'white', marginTop: "20px", width: "50%" }}>
-                            <h2>{data.title}</h2>
-                            <h4>$ {data.price}</h4>
-                            <p>{data.description}</p>
-                            <img src={data.thumbnail} alt="" />
-                        </div>
-                    )
-                })
-            }
+            <nav className='navbar'>
+                <input id='searchInp' placeholder='Search' type="text" />
+            </nav>
+            <div className='MainProductDiv'>
+                {
+                    AllProducts.map(data => {
+                        return (
+                            <div key={data.id} className='ProductDiv'>
+                                <img id='img' src={data.thumbnail} alt="" />
+                                <h2 id='title'>{data.title}</h2>
+                                <h4 id='price'>$ {data.price}</h4>
+                                <p id='description'>{data.description}</p>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
