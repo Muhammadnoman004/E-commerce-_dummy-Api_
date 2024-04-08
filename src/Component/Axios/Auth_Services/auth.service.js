@@ -1,6 +1,6 @@
 import AxiosHandle from '../AxiosHandle'
 
-export const auth = async (payload) => {
+export const login = async (payload) => {
 
     try {
         console.log(payload);

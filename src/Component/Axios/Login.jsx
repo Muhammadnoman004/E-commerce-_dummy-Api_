@@ -1,7 +1,7 @@
 import React from 'react'
 import './AllFile.css'
 import { useForm } from 'react-hook-form'
-import { auth } from './Auth_Services/auth.service'
+import { login } from './Auth_Services/auth.service'
 
 export default function Login() {
 
@@ -14,7 +14,7 @@ export default function Login() {
     const submit = async (data) => {
 
         console.log("data ==>", data);
-        const logdata = await auth(data)
+        const logdata = await login(data)
 
     }
     console.log(errors);
@@ -25,14 +25,14 @@ export default function Login() {
                 <h1 id='heading'>LogIn</h1>
                 <form onSubmit={handleSubmit(submit)}>
 
-                    <input type="email" placeholder='Email'  {...register('email', {
+                    <input type="text" placeholder='Username'  {...register('Username', {
                         required: {
                             value: true,
-                            message: "Email is required"
+                            message: "Username is required"
                         }
                     })} />
                     <br />
-                    <span>{errors.email?.message}</span>
+                    <span>{errors.Username?.message}</span>
                     <br />
 
                     <input type="password" placeholder='Password'  {...register('password', {
