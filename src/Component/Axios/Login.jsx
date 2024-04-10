@@ -1,10 +1,12 @@
 import React from 'react'
 import './AllFile.css'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { login } from './Auth_Services/auth.service'
 
 export default function Login() {
 
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -13,11 +15,17 @@ export default function Login() {
 
     const submit = async (data) => {
 
-        console.log("data ==>", data);
-        const logdata = await login(data)
+        try {
+            const logdata = await login(data);
+            console.log(logdata);
+            sessionStorage.setItem("Token", logdata.token);
+            navigate("/AllProducts")
+        } catch (error) {
+            alert(error.message)
+        }
 
     }
-    console.log(errors);
+    // console.log(errors);
     return (
         <div className='mainDiv'>
             <div className='childDiv'>
@@ -25,7 +33,7 @@ export default function Login() {
                 <h1 id='heading'>LogIn</h1>
                 <form onSubmit={handleSubmit(submit)}>
 
-                    <input type="text" placeholder='Username'  {...register('Username', {
+                    <input type="text" placeholder='Username'  {...register('username', {
                         required: {
                             value: true,
                             message: "Username is required"
