@@ -4,6 +4,7 @@ import AxiosHandle from './AxiosHandle'
 export default function AllProducts() {
 
     const [AllProducts, setAllProducts] = useState([])
+    const [SearchValue, setSearchValue] = useState()
 
 
     useEffect(() => {
@@ -15,11 +16,24 @@ export default function AllProducts() {
             })
     }, [console.log(AllProducts)])
 
+    const SearchInp = (e) => {
+        const value = e.target.value
+        console.log(value);
+        setSearchValue(value)
+    }
+    const SerchButton = () => {
+        console.log(SearchValue);
+    }
+
     return (
         <div>
             <nav className='navbar'>
-                <input id='searchInp' placeholder='Search' type="text" />
+                <input id='searchInp' onChange={SearchInp} placeholder='Search' type="text" />
+                <button onClick={SerchButton}>Search</button>
             </nav>
+            <ul>
+                <li>{SearchValue}</li>
+            </ul>
             <div className='MainProductDiv'>
                 {
                     AllProducts.map(data => {

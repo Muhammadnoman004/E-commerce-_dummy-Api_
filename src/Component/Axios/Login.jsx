@@ -16,10 +16,16 @@ export default function Login() {
     const submit = async (data) => {
 
         try {
-            const logdata = await login(data);
-            console.log(logdata);
-            sessionStorage.setItem("Token", logdata.token);
-            navigate("/AllProducts")
+            if (data.username === "kminchelle" && data.password === "0lelplR") {
+
+                const logdata = await login(data);
+                console.log(logdata);
+                sessionStorage.setItem("Token", logdata.token);
+                navigate("/AllProducts")
+            }
+            else {
+                alert('Incorrect email / password!')
+            }
         } catch (error) {
             alert(error.message)
         }
