@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import AxiosHandle from './AxiosHandle'
+import Navbar from './Navbar'
 
 export default function AllProducts() {
 
     const [AllProducts, setAllProducts] = useState([])
-    const [SearchValue, setSearchValue] = useState()
-
 
     useEffect(() => {
         AxiosHandle.get('/products')
@@ -16,24 +15,10 @@ export default function AllProducts() {
             })
     }, [console.log(AllProducts)])
 
-    const SearchInp = (e) => {
-        const value = e.target.value
-        console.log(value);
-        setSearchValue(value)
-    }
-    const SerchButton = () => {
-        console.log(SearchValue);
-    }
 
     return (
         <div>
-            <nav className='navbar'>
-                <input id='searchInp' onChange={SearchInp} placeholder='Search' type="text" />
-                <button onClick={SerchButton}>Search</button>
-            </nav>
-            <ul>
-                <li>{SearchValue}</li>
-            </ul>
+            <Navbar />
             <div className='MainProductDiv'>
                 {
                     AllProducts.map(data => {
