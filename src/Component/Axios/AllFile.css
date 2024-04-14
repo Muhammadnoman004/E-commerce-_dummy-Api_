@@ -130,3 +130,12 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-top: 5px;
 }
+
+#notfound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

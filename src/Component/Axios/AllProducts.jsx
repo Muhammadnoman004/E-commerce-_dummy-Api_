@@ -8,33 +8,42 @@ export default function AllProducts() {
     const [Data, setData] = useContext(Product)
     const [AllProducts, setAllProducts] = useState([])
 
-    // useEffect(() => {
-    //     AxiosHandle.get('/products')
-    //         .then(res => {
-    //             setAllProducts(res.products)
-    //         }).catch(error => {
-    //             console.log(error);
-    //         })
-    // }, [console.log(AllProducts)])
-
+    useEffect(() => {
+        AxiosHandle.get('/products')
+            .then(res => {
+                setData(res.products)
+            }).catch(error => {
+                console.log(error);
+            })
+    }, [])
 
     return (
         <div>
             <Navbar />
-            <div className='MainProductDiv'>
-                {
-                    Data.map(data => {
-                        return (
-                            <div key={data.id} className='ProductDiv'>
-                                <img id='img' src={data.thumbnail} alt="" />
-                                <h2 id='title'>{data.title}</h2>
-                                <h4 id='price'>$ {data.price}</h4>
-                                <p id='description'>{data.description}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            {
+                !Data.length ?
+                    (
+                        <h1 id='notfound'>Product Not Found!</h1>
+                    ) : (
+                        <div className='MainProductDiv'>
+                            {
+
+                                Data.map(data => {
+                                    return (
+                                        <div key={data.id} className='ProductDiv'>
+                                            <img id='img' src={data.thumbnail} alt="" />
+                                            <h2 id='title'>{data.title}</h2>
+                                            <h4 id='price'>$ {data.price}</h4>
+                                            <p id='description'>{data.description}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )
+            }
+
+
         </div>
     )
 }
