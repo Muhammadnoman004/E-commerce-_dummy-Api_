@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import Product from '../Context/Context'
 import AxiosHandle from './AxiosHandle'
+import { useContext } from 'react'
 
 export default function Navbar() {
 
-    const [SearchValue, setSearchValue] = useState([])
+    const [Data, setData] = useContext(Product)
 
 
     const handleChange = (e) => {
@@ -12,8 +14,8 @@ export default function Navbar() {
 
         AxiosHandle.get(`/products/search?q=${value}`)
             .then(res => {
-                console.log(res.products);
-                setSearchValue(res.products)
+                setData(res.products)
+                console.log(Data);
             })
             .catch(error => {
                 console.log(error);
@@ -25,21 +27,6 @@ export default function Navbar() {
             <nav className='navbar'>
                 <input id='searchInp' onChange={handleChange} placeholder='Search' type="text" />
             </nav>
-            <div>
-                {
-                    SearchValue.map(list => {
-                        return (
-
-                            <div className='ProductDiv'>
-                                <img id='img' src={list.thumbnail} alt="" />
-                                <h2 id='title'>{list.title}</h2>
-                                <h4 id='price'>$ {list.price}</h4>
-                                <p id='description'>{list.description}</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
         </div>
     )
 }
