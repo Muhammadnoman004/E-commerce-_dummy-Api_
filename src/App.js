@@ -1,6 +1,6 @@
 import './App.css';
 import Router from './Component/Router/Router';
-import Product from './Component/Context/Context';
+import { Product } from './Component/Context/Context';
 import { useState } from 'react';
 
 function App() {

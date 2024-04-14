@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Product from '../Context/Context'
+import { Product } from '../Context/Context'
 import AxiosHandle from './AxiosHandle'
 import { useContext } from 'react'
 

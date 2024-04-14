@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Product from '../Context/Context'
+import { Product } from '../Context/Context'
 import AxiosHandle from './AxiosHandle'
 import Navbar from './Navbar'
+import { Link } from 'react-router-dom'
 
 export default function AllProducts() {
 
@@ -35,6 +36,7 @@ export default function AllProducts() {
                                             <h2 id='title'>{data.title}</h2>
                                             <h4 id='price'>$ {data.price}</h4>
                                             <p id='description'>{data.description}</p>
+                                            <Link to={`/SingleProduct?productid=${data.id}`}><p id='detail'>View details...</p></Link>
                                         </div>
                                     )
                                 })

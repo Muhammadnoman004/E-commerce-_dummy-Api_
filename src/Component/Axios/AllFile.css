@@ -107,6 +107,24 @@ body {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
+.singleProductDiv {
+    background-color: white;
+    width: 50%;
+    padding: 13px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.singleProductDiv>h4>span {
+    font-size: medium;
+    font-weight: 200;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 #img {
     width: 100%;
     height: 300px;
@@ -120,6 +138,14 @@ body {
     padding-top: 10px;
 }
 
+#singleprotitle {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
 #price {
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
@@ -129,6 +155,12 @@ body {
 #description {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-top: 5px;
+}
+
+#detail {
+    padding-top: 20px;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #notfound {
