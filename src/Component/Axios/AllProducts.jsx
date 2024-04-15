@@ -1,13 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Product } from '../Context/Context'
 import AxiosHandle from './AxiosHandle'
 import Navbar from './Navbar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function AllProducts() {
 
     const [Data, setData] = useContext(Product)
-    const [AllProducts, setAllProducts] = useState([])
+    const navigate = useNavigate()
+
+    const userToken = sessionStorage.getItem("Token");
+    console.log(userToken);
+    if (!userToken) {
+        navigate('/login');
+    }
 
     useEffect(() => {
         AxiosHandle.get('/products')

@@ -10,12 +10,10 @@ export default function Navbar() {
 
     const handleChange = (e) => {
         const value = e.target.value
-        console.log(value);
 
         AxiosHandle.get(`/products/search?q=${value}`)
             .then(res => {
                 setData(res.products)
-                console.log(Data);
             })
             .catch(error => {
                 console.log(error);
